@@ -1,0 +1,3 @@
+/home/supatil/digitizer/build/CMakeFiles/CaptureFrames.dir
+/home/supatil/digitizer/build/CMakeFiles/edit_cache.dir
+/home/supatil/digitizer/build/CMakeFiles/rebuild_cache.dir
