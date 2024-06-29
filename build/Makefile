@@ -129,29 +129,77 @@ CaptureFrames/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/build
 .PHONY : CaptureFrames/fast
 
-CaptureFrames.o: CaptureFrames.cpp.o
-.PHONY : CaptureFrames.o
+digitizer.o: digitizer.cpp.o
+.PHONY : digitizer.o
 
 # target to build an object file
-CaptureFrames.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o
-.PHONY : CaptureFrames.cpp.o
+digitizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/digitizer.cpp.o
+.PHONY : digitizer.cpp.o
 
-CaptureFrames.i: CaptureFrames.cpp.i
-.PHONY : CaptureFrames.i
+digitizer.i: digitizer.cpp.i
+.PHONY : digitizer.i
 
 # target to preprocess a source file
-CaptureFrames.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.i
-.PHONY : CaptureFrames.cpp.i
+digitizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/digitizer.cpp.i
+.PHONY : digitizer.cpp.i
 
-CaptureFrames.s: CaptureFrames.cpp.s
-.PHONY : CaptureFrames.s
+digitizer.s: digitizer.cpp.s
+.PHONY : digitizer.s
 
 # target to generate assembly for a file
-CaptureFrames.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.s
-.PHONY : CaptureFrames.cpp.s
+digitizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/digitizer.cpp.s
+.PHONY : digitizer.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+tracker.o: tracker.cpp.o
+.PHONY : tracker.o
+
+# target to build an object file
+tracker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/tracker.cpp.o
+.PHONY : tracker.cpp.o
+
+tracker.i: tracker.cpp.i
+.PHONY : tracker.i
+
+# target to preprocess a source file
+tracker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/tracker.cpp.i
+.PHONY : tracker.cpp.i
+
+tracker.s: tracker.cpp.s
+.PHONY : tracker.s
+
+# target to generate assembly for a file
+tracker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/tracker.cpp.s
+.PHONY : tracker.cpp.s
 
 # Help Target
 help:
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CaptureFrames"
-	@echo "... CaptureFrames.o"
-	@echo "... CaptureFrames.i"
-	@echo "... CaptureFrames.s"
+	@echo "... digitizer.o"
+	@echo "... digitizer.i"
+	@echo "... digitizer.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... tracker.o"
+	@echo "... tracker.i"
+	@echo "... tracker.s"
 .PHONY : help
 
 

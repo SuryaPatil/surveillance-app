@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o"
-  "CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o.d"
+  "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o"
+  "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o.d"
+  "CMakeFiles/CaptureFrames.dir/main.cpp.o"
+  "CMakeFiles/CaptureFrames.dir/main.cpp.o.d"
+  "CMakeFiles/CaptureFrames.dir/tracker.cpp.o"
+  "CMakeFiles/CaptureFrames.dir/tracker.cpp.o.d"
   "CaptureFrames"
   "CaptureFrames.pdb"
 )

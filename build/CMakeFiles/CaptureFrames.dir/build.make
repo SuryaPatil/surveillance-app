@@ -69,28 +69,60 @@ include CMakeFiles/CaptureFrames.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CaptureFrames.dir/flags.make
 
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o: CMakeFiles/CaptureFrames.dir/flags.make
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o: /home/supatil/digitizer/CaptureFrames.cpp
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o: CMakeFiles/CaptureFrames.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o -MF CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o.d -o CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o -c /home/supatil/digitizer/CaptureFrames.cpp
+CMakeFiles/CaptureFrames.dir/main.cpp.o: CMakeFiles/CaptureFrames.dir/flags.make
+CMakeFiles/CaptureFrames.dir/main.cpp.o: /home/supatil/digitizer/main.cpp
+CMakeFiles/CaptureFrames.dir/main.cpp.o: CMakeFiles/CaptureFrames.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CaptureFrames.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CaptureFrames.dir/main.cpp.o -MF CMakeFiles/CaptureFrames.dir/main.cpp.o.d -o CMakeFiles/CaptureFrames.dir/main.cpp.o -c /home/supatil/digitizer/main.cpp
 
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supatil/digitizer/CaptureFrames.cpp > CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.i
+CMakeFiles/CaptureFrames.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CaptureFrames.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supatil/digitizer/main.cpp > CMakeFiles/CaptureFrames.dir/main.cpp.i
 
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supatil/digitizer/CaptureFrames.cpp -o CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.s
+CMakeFiles/CaptureFrames.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CaptureFrames.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supatil/digitizer/main.cpp -o CMakeFiles/CaptureFrames.dir/main.cpp.s
+
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.o: CMakeFiles/CaptureFrames.dir/flags.make
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.o: /home/supatil/digitizer/digitizer.cpp
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.o: CMakeFiles/CaptureFrames.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CaptureFrames.dir/digitizer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CaptureFrames.dir/digitizer.cpp.o -MF CMakeFiles/CaptureFrames.dir/digitizer.cpp.o.d -o CMakeFiles/CaptureFrames.dir/digitizer.cpp.o -c /home/supatil/digitizer/digitizer.cpp
+
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CaptureFrames.dir/digitizer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supatil/digitizer/digitizer.cpp > CMakeFiles/CaptureFrames.dir/digitizer.cpp.i
+
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CaptureFrames.dir/digitizer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supatil/digitizer/digitizer.cpp -o CMakeFiles/CaptureFrames.dir/digitizer.cpp.s
+
+CMakeFiles/CaptureFrames.dir/tracker.cpp.o: CMakeFiles/CaptureFrames.dir/flags.make
+CMakeFiles/CaptureFrames.dir/tracker.cpp.o: /home/supatil/digitizer/tracker.cpp
+CMakeFiles/CaptureFrames.dir/tracker.cpp.o: CMakeFiles/CaptureFrames.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CaptureFrames.dir/tracker.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CaptureFrames.dir/tracker.cpp.o -MF CMakeFiles/CaptureFrames.dir/tracker.cpp.o.d -o CMakeFiles/CaptureFrames.dir/tracker.cpp.o -c /home/supatil/digitizer/tracker.cpp
+
+CMakeFiles/CaptureFrames.dir/tracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CaptureFrames.dir/tracker.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supatil/digitizer/tracker.cpp > CMakeFiles/CaptureFrames.dir/tracker.cpp.i
+
+CMakeFiles/CaptureFrames.dir/tracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CaptureFrames.dir/tracker.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supatil/digitizer/tracker.cpp -o CMakeFiles/CaptureFrames.dir/tracker.cpp.s
 
 # Object files for target CaptureFrames
 CaptureFrames_OBJECTS = \
-"CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o"
+"CMakeFiles/CaptureFrames.dir/main.cpp.o" \
+"CMakeFiles/CaptureFrames.dir/digitizer.cpp.o" \
+"CMakeFiles/CaptureFrames.dir/tracker.cpp.o"
 
 # External object files for target CaptureFrames
 CaptureFrames_EXTERNAL_OBJECTS =
 
-CaptureFrames: CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o
+CaptureFrames: CMakeFiles/CaptureFrames.dir/main.cpp.o
+CaptureFrames: CMakeFiles/CaptureFrames.dir/digitizer.cpp.o
+CaptureFrames: CMakeFiles/CaptureFrames.dir/tracker.cpp.o
 CaptureFrames: CMakeFiles/CaptureFrames.dir/build.make
 CaptureFrames: /home/supatil/build/lib/libopencv_gapi.so.4.10.0
 CaptureFrames: /home/supatil/build/lib/libopencv_highgui.so.4.10.0
@@ -108,7 +140,7 @@ CaptureFrames: /home/supatil/build/lib/libopencv_flann.so.4.10.0
 CaptureFrames: /home/supatil/build/lib/libopencv_imgproc.so.4.10.0
 CaptureFrames: /home/supatil/build/lib/libopencv_core.so.4.10.0
 CaptureFrames: CMakeFiles/CaptureFrames.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable CaptureFrames"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CaptureFrames"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CaptureFrames.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,5 +1,5 @@
-CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o: \
- /home/supatil/digitizer/CaptureFrames.cpp /usr/include/stdc-predef.h \
+CMakeFiles/CaptureFrames.dir/digitizer.cpp.o: \
+ /home/supatil/digitizer/digitizer.cpp /usr/include/stdc-predef.h \
  /home/supatil/opencv/include/opencv2/opencv.hpp \
  /home/supatil/build/opencv2/opencv_modules.hpp \
  /home/supatil/opencv/modules/core/include/opencv2/core.hpp \
@@ -368,4 +368,4 @@ CMakeFiles/CaptureFrames.dir/CaptureFrames.cpp.o: \
  /home/supatil/opencv/modules/video/include/opencv2/video.hpp \
  /home/supatil/opencv/modules/video/include/opencv2/video/tracking.hpp \
  /home/supatil/opencv/modules/video/include/opencv2/video/background_segm.hpp \
- /home/supatil/digitizer/tracker.hpp
+ /home/supatil/digitizer/source.hpp
