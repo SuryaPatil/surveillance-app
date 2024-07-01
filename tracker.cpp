@@ -1,38 +1,60 @@
 #include "tracker.hpp"
 #include <vector>
+#include "source.hpp"
 
 using namespace cv;
 using namespace std;
 
-bool trackerFunction(const Mat& frame, Mat& outputFrame) {
-    // Convert frame to HSV color space
-    Mat hsvFrame;
-    cvtColor(frame, hsvFrame, COLOR_BGR2HSV);
+void *trackerFunction(void *param) {
+    int i = 0;
+    while (1){
+        pthread_mutex_lock (&m);
+		if (numIndex < 0) exit(1);   /* underflow */
+		while (numIndex == 0)		/* block if buffer empty */
+			pthread_cond_wait (&c_cons, &m);
+		/* if executing here, buffer not empty so remove element */
+		Mat frame = buffer[remIndex];
+		remIndex = (remIndex+1) % BUF_SIZE;
+		numIndex--;
 
-    // Threshold the HSV image to get only white colors
-    Mat mask;
-    inRange(hsvFrame, Scalar(0, 0, 200), Scalar(180, 55, 255), mask);
+        // Convert frame to HSV color space
+        Mat hsvFrame;
+        Mat outputFrame;
+        cvtColor(frame, hsvFrame, COLOR_BGR2HSV);
 
-    // Find contours
-    vector<vector<Point>> contours;
-    vector<Vec4i> hierarchy;
-    findContours(mask, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
+        // Threshold the HSV image to get only white colors
+        Mat mask;
+        inRange(hsvFrame, Scalar(0, 0, 200), Scalar(180, 55, 255), mask);
 
-    bool waterBottleDetected = false;
+        // Find contours
+        vector<vector<Point>> contours;
+        vector<Vec4i> hierarchy;
+        findContours(mask, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
 
-    // Copy the input frame to output frame to draw bounding boxes
-    frame.copyTo(outputFrame);
+        bool waterBottleDetected = false;
 
-    for (size_t i = 0; i < contours.size(); i++) {
-        Rect boundingRect = cv::boundingRect(contours[i]);
-        double aspectRatio = (double)boundingRect.height / (double)boundingRect.width;
+        // Copy the input frame to output frame to draw bounding boxes
+        frame.copyTo(outputFrame);
 
-        // Simple heuristic for water bottle detection based on aspect ratio and size
-        if (aspectRatio > 1.5 && boundingRect.height > 50) {
-            rectangle(outputFrame, boundingRect, Scalar(255, 0, 0), 2);
-            waterBottleDetected = true;
+        for (size_t i = 0; i < contours.size(); i++) {
+            Rect boundingRect = cv::boundingRect(contours[i]);
+            double aspectRatio = (double)boundingRect.height / (double)boundingRect.width;
+
+            // Simple heuristic for water bottle detection based on aspect ratio and size
+            if (aspectRatio > 1.5 && boundingRect.height > 50) {
+                rectangle(outputFrame, boundingRect, Scalar(255, 0, 0), 2);
+                waterBottleDetected = true;
+            }
         }
-    }
 
-    return waterBottleDetected;
+        if (waterBottleDetected){
+            printf("Bottle detected at iter %d\n",i);
+        }
+
+		pthread_mutex_unlock (&m);
+		pthread_cond_signal (&c_prod);
+		printf ("Consumed frame\n");  fflush(stdout);
+        i += 1;
+
+    }
 }

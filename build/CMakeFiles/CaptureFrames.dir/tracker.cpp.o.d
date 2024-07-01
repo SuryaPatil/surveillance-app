@@ -368,4 +368,5 @@ CMakeFiles/CaptureFrames.dir/tracker.cpp.o: \
  /home/supatil/opencv/modules/stitching/include/opencv2/stitching/detail/camera.hpp \
  /home/supatil/opencv/modules/video/include/opencv2/video.hpp \
  /home/supatil/opencv/modules/video/include/opencv2/video/tracking.hpp \
- /home/supatil/opencv/modules/video/include/opencv2/video/background_segm.hpp
+ /home/supatil/opencv/modules/video/include/opencv2/video/background_segm.hpp \
+ /home/supatil/digitizer/source.hpp

@@ -6,6 +6,7 @@ using namespace cv;
 #include <pthread.h> 
 #include "source.hpp"
 
+//Mat buffer[BUF_SIZE];
 void *capture(void *param)
 {
     VideoCapture cap(0); // open the default camera (use 0 for the default camera, -1 may not be a valid index)
@@ -27,35 +28,22 @@ void *capture(void *param)
             std::cerr << "Error: Could not read frame from camera" << std::endl;
             break;
         }
-
         if (frameNumber == 200){
             break;
         }
 
-        // Pass the frame to the tracker function for analysis
-        // bool waterBottleDetected = trackerFunction(frame, analyzedFrame);
-
-        // if (waterBottleDetected) {
-        //     std::string text = "Detected water bottle at frame number ";
-        //     text += std::to_string(frameNumber);
-        //     std::cout << text << std::endl;
-        // }
-
-        // Save the frame as an image file
-        std::ostringstream filename;
-        filename << "frame_" << frameNumber << ".png";
-        imwrite(filename.str(), frame);
-        frameNumber++;
-
-
-        // Display the frame
-        imshow(windowName, frame);
-
-        // Exit if ESC key is pressed
-        if (waitKey(30) == 27) {
-            std::cout << "ESC key pressed by user. Exiting..." << std::endl;
-            break;
-        }
+        pthread_mutex_lock (&m);
+		if (numIndex > BUF_SIZE) exit(1);	/* overflow */
+		while (numIndex == BUF_SIZE)			/* block if buffer is full */
+			pthread_cond_wait (&c_prod, &m);
+		/* if executing here, buffer not full so add element */
+		buffer[addIndex] = frame;
+		addIndex = (addIndex+1) % BUF_SIZE;
+		numIndex++;
+		pthread_mutex_unlock (&m);
+		pthread_cond_signal (&c_cons);
+		printf ("producer: inserted %d\n", frameNumber);  fflush (stdout);
+        frameNumber += 1;
     }
 
     cap.release();
