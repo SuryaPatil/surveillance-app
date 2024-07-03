@@ -28,9 +28,6 @@ void *capture(void *param)
             std::cerr << "Error: Could not read frame from camera" << std::endl;
             break;
         }
-        if (frameNumber == 200){
-            break;
-        }
 
         pthread_mutex_lock (&m);
 		if (numIndex > BUF_SIZE) exit(1);	/* overflow */
@@ -42,7 +39,12 @@ void *capture(void *param)
 		numIndex++;
 		pthread_mutex_unlock (&m);
 		pthread_cond_signal (&c_cons);
-		printf ("producer: inserted %d\n", frameNumber);  fflush (stdout);
+
+        imshow(windowName,frame);
+        if (frameNumber == 200){
+            break;
+        }
+	//	printf ("producer: inserted %d\n", frameNumber);  fflush (stdout);
         frameNumber += 1;
     }
 

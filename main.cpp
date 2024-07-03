@@ -14,8 +14,6 @@ int main(){
     pthread_t tid1, tid2;		/* thread identifiers */
 	int i;
 
-    printf("addIndex: %d\n", addIndex);
-
 	/* create digitizer thread */
 	if (pthread_create(&tid1,NULL,capture,NULL) != 0) {
 		fprintf (stderr, "Unable to create producer thread\n");
