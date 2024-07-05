@@ -6,7 +6,7 @@ using namespace cv;
 using namespace std;
 
 void *trackerFunction(void *param) {
-    int i = 0;
+    int j = 0;
     while (1){
         pthread_mutex_lock (&m);
 		if (numIndex < 0) exit(1);   /* underflow */
@@ -31,8 +31,6 @@ void *trackerFunction(void *param) {
         vector<Vec4i> hierarchy;
         findContours(mask, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
 
-        bool waterBottleDetected = false;
-
         // Copy the input frame to output frame to draw bounding boxes
         frame.copyTo(outputFrame);
 
@@ -41,24 +39,26 @@ void *trackerFunction(void *param) {
             double aspectRatio = (double)boundingRect.height / (double)boundingRect.width;
 
             // Simple heuristic for water bottle detection based on aspect ratio and size
-            if (aspectRatio > 1.5 && boundingRect.height > 50) {
+            if (aspectRatio > 1.5 && boundingRect.height > 50 && boundingRect.width > 75) {
                 rectangle(outputFrame, boundingRect, Scalar(255, 0, 0), 2);
                 // Save the frame as an image file
                 std::ostringstream filename;
-                filename << "frame_" << i << ".png";
+                filename << "frame_" << j << ".png";
                 imwrite(filename.str(), outputFrame);
-                waterBottleDetected = true;
+                printf("Bottle detected at iter %d\n",j); 
+                printf("width: %d\n", boundingRect.width);
+                // printf("height: %d\n", boundingRect.height);
+                // printf("aspect ratio: %f\n\n", aspectRatio);
+                printf("\n");
             }
+
         }
 
-        if (waterBottleDetected){
-            printf("Bottle detected at iter %d\n",i); 
-        }
-
+        j += 1;
 		pthread_mutex_unlock (&m);
 		pthread_cond_signal (&c_prod);
 	//	printf ("Consumed frame\n");  fflush(stdout);
-        i += 1;
+        
 
     }
 }
