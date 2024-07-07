@@ -39,7 +39,7 @@ void *trackerFunction(void *param) {
             double aspectRatio = (double)boundingRect.height / (double)boundingRect.width;
 
             // Simple heuristic for water bottle detection based on aspect ratio and size
-            if (aspectRatio > 1.5 && boundingRect.height > 50 && boundingRect.width > 75) {
+            if (aspectRatio > 1.5 && boundingRect.height > 50 && boundingRect.width > 50) {
                 rectangle(outputFrame, boundingRect, Scalar(255, 0, 0), 2);
                 // Save the frame as an image file
                 std::ostringstream filename;
@@ -47,9 +47,12 @@ void *trackerFunction(void *param) {
                 imwrite(filename.str(), outputFrame);
                 printf("Bottle detected at iter %d\n",j); 
                 printf("width: %d\n", boundingRect.width);
-                // printf("height: %d\n", boundingRect.height);
+                printf("height: %d\n", boundingRect.height);
                 // printf("aspect ratio: %f\n\n", aspectRatio);
                 printf("\n");
+            }
+            else{
+             //   printf("&No Bottle detected at iter %d\n", j);
             }
 
         }

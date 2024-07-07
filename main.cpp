@@ -9,6 +9,14 @@ pthread_mutex_t m=PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t c_cons=PTHREAD_COND_INITIALIZER;
 pthread_cond_t c_prod=PTHREAD_COND_INITIALIZER;
 
+bool flags[BUF_SIZE]; 
+int addFlagIndex = 0;
+int remFlagIndex = 0;
+int numFlagIndex = 0;
+pthread_mutex_t f=PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t f_cons=PTHREAD_COND_INITIALIZER;
+pthread_cond_t f_prod=PTHREAD_COND_INITIALIZER;
+
 int main(){
 
     pthread_t tid1, tid2;		/* thread identifiers */
