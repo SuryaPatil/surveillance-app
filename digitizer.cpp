@@ -22,7 +22,7 @@ void *capture(void *param)
 
     namedWindow(windowName, WINDOW_AUTOSIZE);
 
-    while (true) {
+    while (running) {
         cap >> frame; // capture a new frame
         if (frame.empty()) {
             std::cerr << "Error: Could not read frame from camera" << std::endl;
@@ -41,14 +41,12 @@ void *capture(void *param)
 		pthread_cond_signal (&c_cons);
 
         imshow(windowName,frame);
-        if (frameNumber == 200){
-            break;
-        }
 	//	printf ("producer: inserted %d\n", frameNumber);  fflush (stdout);
         frameNumber += 1;
     }
 
     cap.release();
     destroyAllWindows();
+    printf("digitizer thread returning\n");
     return nullptr;
 }

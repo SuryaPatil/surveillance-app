@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CaptureFrames.dir/alarm.cpp.o"
+  "CMakeFiles/CaptureFrames.dir/alarm.cpp.o.d"
   "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o"
   "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o.d"
   "CMakeFiles/CaptureFrames.dir/main.cpp.o"

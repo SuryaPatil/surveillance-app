@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/supatil/digitizer/alarm.cpp" "CMakeFiles/CaptureFrames.dir/alarm.cpp.o" "gcc" "CMakeFiles/CaptureFrames.dir/alarm.cpp.o.d"
   "/home/supatil/digitizer/digitizer.cpp" "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o" "gcc" "CMakeFiles/CaptureFrames.dir/digitizer.cpp.o.d"
   "/home/supatil/digitizer/main.cpp" "CMakeFiles/CaptureFrames.dir/main.cpp.o" "gcc" "CMakeFiles/CaptureFrames.dir/main.cpp.o.d"
   "/home/supatil/digitizer/tracker.cpp" "CMakeFiles/CaptureFrames.dir/tracker.cpp.o" "gcc" "CMakeFiles/CaptureFrames.dir/tracker.cpp.o.d"

@@ -129,6 +129,30 @@ CaptureFrames/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/build
 .PHONY : CaptureFrames/fast
 
+alarm.o: alarm.cpp.o
+.PHONY : alarm.o
+
+# target to build an object file
+alarm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/alarm.cpp.o
+.PHONY : alarm.cpp.o
+
+alarm.i: alarm.cpp.i
+.PHONY : alarm.i
+
+# target to preprocess a source file
+alarm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/alarm.cpp.i
+.PHONY : alarm.cpp.i
+
+alarm.s: alarm.cpp.s
+.PHONY : alarm.s
+
+# target to generate assembly for a file
+alarm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/alarm.cpp.s
+.PHONY : alarm.cpp.s
+
 digitizer.o: digitizer.cpp.o
 .PHONY : digitizer.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CaptureFrames"
+	@echo "... alarm.o"
+	@echo "... alarm.i"
+	@echo "... alarm.s"
 	@echo "... digitizer.o"
 	@echo "... digitizer.i"
 	@echo "... digitizer.s"

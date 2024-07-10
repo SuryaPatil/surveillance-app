@@ -1,4 +1,3 @@
-//#include "tracker.hpp"
 #include <vector>
 #include "source.hpp"
 
@@ -7,7 +6,7 @@ using namespace std;
 
 void *trackerFunction(void *param) {
     int j = 0;
-    while (1){
+    while (running){
         pthread_mutex_lock (&m);
 		if (numIndex < 0) exit(1);   /* underflow */
 		while (numIndex == 0)		/* block if buffer empty */
@@ -34,6 +33,7 @@ void *trackerFunction(void *param) {
         // Copy the input frame to output frame to draw bounding boxes
         frame.copyTo(outputFrame);
 
+        bool waterBottleDetected = false;
         for (size_t i = 0; i < contours.size(); i++) {
             Rect boundingRect = cv::boundingRect(contours[i]);
             double aspectRatio = (double)boundingRect.height / (double)boundingRect.width;
@@ -52,7 +52,7 @@ void *trackerFunction(void *param) {
                 printf("\n");
             }
             else{
-             //   printf("&No Bottle detected at iter %d\n", j);
+                waterBottleDetected = true;
             }
 
         }
@@ -60,8 +60,22 @@ void *trackerFunction(void *param) {
         j += 1;
 		pthread_mutex_unlock (&m);
 		pthread_cond_signal (&c_prod);
+        
+        /* Insert into flags buffer */
+        pthread_mutex_lock (&f);
+		if (numFlagIndex > BUF_SIZE) exit(1);	/* overflow */
+		while (numFlagIndex == BUF_SIZE)			/* block if buffer is full */
+			pthread_cond_wait (&f_prod, &f);
+		/* if executing here, buffer not full so add element */
+		flags[addFlagIndex] = waterBottleDetected;
+		addFlagIndex = (addFlagIndex+1) % BUF_SIZE;
+		numFlagIndex++;
+		pthread_mutex_unlock (&f);
+		pthread_cond_signal (&f_cons);
 	//	printf ("Consumed frame\n");  fflush(stdout);
         
 
     }
+    printf("tracker thread returning\n");
+    return nullptr;
 }
