@@ -1,6 +1,7 @@
 #ifndef SOURCE_HPP
 #define SOURCE_HPP
 #define BUF_SIZE 3
+#define FLAG_BUF_SIZE 3
 
 #include "opencv2/opencv.hpp"
 using namespace cv;
@@ -22,11 +23,11 @@ extern pthread_mutex_t m;	/* mutex lock for buffer */
 extern pthread_cond_t c_cons; /* consumer waits on this cond var */
 extern pthread_cond_t c_prod; /* producer waits on this cond var */
 
-extern bool flags[BUF_SIZE];							/* shared buffer */
+extern bool flags[FLAG_BUF_SIZE];							/* shared buffer */
 extern int addFlagIndex;							    /* place to add next element */
 extern int remFlagIndex;							/* place to remove next element */
-extern int numFlagIndex;							/* number elements in buffer */
-extern pthread_mutex_t f;	/* mutex lock for buffer */
+extern int numFlags;							/* number flags in flags buffer */
+extern pthread_mutex_t f;	/* mutex lock for flags buffer */
 extern pthread_cond_t f_cons; /* consumer waits on this cond var */
 extern pthread_cond_t f_prod; /* producer waits on this cond var */
 

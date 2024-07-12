@@ -1,12 +1,19 @@
 #include <vector>
 #include "source.hpp"
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
 
 using namespace cv;
 using namespace std;
 
 void *trackerFunction(void *param) {
     int j = 0;
+    int frameNumber = 0;
+    int numTrue = 0;
+    int numFalse = 0;
+    std::srand(std::time(0));
     while (running){
+
         pthread_mutex_lock (&m);
 		if (numIndex < 0) exit(1);   /* underflow */
 		while (numIndex == 0)		/* block if buffer empty */
@@ -50,32 +57,39 @@ void *trackerFunction(void *param) {
                 printf("height: %d\n", boundingRect.height);
                 // printf("aspect ratio: %f\n\n", aspectRatio);
                 printf("\n");
-            }
-            else{
                 waterBottleDetected = true;
+                j += 1;
+                break;
             }
 
         }
-
-        j += 1;
 		pthread_mutex_unlock (&m);
 		pthread_cond_signal (&c_prod);
         
+        //waterBottleDetected = std::rand() % 2;
+        printf("waterBottle: %d ", waterBottleDetected);
+        
         /* Insert into flags buffer */
         pthread_mutex_lock (&f);
-		if (numFlagIndex > BUF_SIZE) exit(1);	/* overflow */
-		while (numFlagIndex == BUF_SIZE)			/* block if buffer is full */
+		if (numFlags > FLAG_BUF_SIZE) exit(1);	/* overflow */
+		while (numFlags == FLAG_BUF_SIZE)			/* block if buffer is full */
 			pthread_cond_wait (&f_prod, &f);
 		/* if executing here, buffer not full so add element */
+        if (waterBottleDetected){
+            printf("adding true %d\n", numTrue);
+            numTrue += 1;
+        }
+        else{
+            printf("adding false\n");
+        }
 		flags[addFlagIndex] = waterBottleDetected;
-		addFlagIndex = (addFlagIndex+1) % BUF_SIZE;
-		numFlagIndex++;
+		addFlagIndex = (addFlagIndex+1) % FLAG_BUF_SIZE;
+		numFlags++;
 		pthread_mutex_unlock (&f);
 		pthread_cond_signal (&f_cons);
-	//	printf ("Consumed frame\n");  fflush(stdout);
-        
-
+	//	printf ("Consumed frame\n");  fflush(stdout);       
     }
+
     printf("tracker thread returning\n");
     return nullptr;
 }

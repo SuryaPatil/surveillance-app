@@ -8,13 +8,13 @@ void *alarm(void *param) {
     while(running) {
 
         pthread_mutex_lock (&f);
-		if (numFlagIndex < 0) exit(1);   /* underflow */
-		while (numFlagIndex == 0)		/* block if buffer empty */
+		if (numFlags < 0) exit(1);   /* underflow */
+		while (numFlags == 0)		/* block if buffer empty */
 			pthread_cond_wait (&f_cons, &f);
 		/* if executing here, buffer not empty so remove element */
 		bool i = flags[remFlagIndex];
-		remFlagIndex = (remFlagIndex+1) % BUF_SIZE;
-		numFlagIndex--;
+		remFlagIndex = (remFlagIndex+1) % FLAG_BUF_SIZE;
+		numFlags--;
 
         if (i){
             printf("Must send message %d\n", numMgs);
