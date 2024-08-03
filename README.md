@@ -10,8 +10,10 @@ https://youtu.be/Dup3v_lNjLI
 
 ### Software requirements:
 Note: This project was built on tested on Ubuntu 24.04.
-Install [OpenCV](https://phoenixnap.com/kb/installing-opencv-on-ubuntu)
-Obtain a Twilio account SID and an auth token: https://www.twilio.com/docs/iam/api-keys
+
+1) Install [OpenCV](https://phoenixnap.com/kb/installing-opencv-on-ubuntu)
+
+2) Obtain a Twilio account SID and an auth token: https://www.twilio.com/docs/iam/api-keys
 
 ### Hardware requirements:
 Your computer must have a webcam.
