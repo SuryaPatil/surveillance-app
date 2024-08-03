@@ -9,6 +9,7 @@ using namespace cv;
 void *capture(void *param);
 void *trackerFunction(void *param);
 void *alarm(void *param);
+int *alert(int argc, char * argv[]);
 
 /* Size of shared buffer */
 #define BUF_SIZE 3

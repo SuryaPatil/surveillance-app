@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/supatil/build -isystem /home/supatil/opencv/include -isystem /home/supatil/opencv/modules/core/include -isystem /home/supatil/opencv/modules/flann/include -isystem /home/supatil/opencv/modules/imgproc/include -isystem /home/supatil/opencv/modules/ml/include -isystem /home/supatil/opencv/modules/photo/include -isystem /home/supatil/opencv/modules/dnn/include -isystem /home/supatil/opencv/modules/features2d/include -isystem /home/supatil/opencv/modules/imgcodecs/include -isystem /home/supatil/opencv/modules/videoio/include -isystem /home/supatil/opencv/modules/calib3d/include -isystem /home/supatil/opencv/modules/highgui/include -isystem /home/supatil/opencv/modules/objdetect/include -isystem /home/supatil/opencv/modules/stitching/include -isystem /home/supatil/opencv/modules/ts/include -isystem /home/supatil/opencv/modules/video/include -isystem /home/supatil/opencv/modules/gapi/include
+CXX_INCLUDES = -I/home/supatil/digitizer/include -isystem /usr/local/include/opencv4
 
 CXX_FLAGS = 
 

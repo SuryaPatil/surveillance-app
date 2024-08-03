@@ -81,12 +81,12 @@ clean: CMakeFiles/CaptureFrames.dir/clean
 CMakeFiles/CaptureFrames.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CaptureFrames.dir/build.make CMakeFiles/CaptureFrames.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target CaptureFrames"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/supatil/digitizer/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target CaptureFrames"
 .PHONY : CMakeFiles/CaptureFrames.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CaptureFrames.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/supatil/digitizer/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/supatil/digitizer/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CaptureFrames.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/supatil/digitizer/build/CMakeFiles 0
 .PHONY : CMakeFiles/CaptureFrames.dir/rule
