@@ -1,9 +1,9 @@
 # surveillance-app
-A continuous, multi-threaded application that monitors the presence of a water bottle. The application sends messages to the user based on the water bottle's movements. 
+A continuous application that monitors the presence of a water bottle. The application sends messages to the user based on the water bottle's movements. 
 
 Camera frames are captured and digitized by the digitizer, and analyzed by the tracker, triggering control actions by the alarm module. The digitizer component of the program continually converts the video into a sequence of frames of pixels. The tracker component analyzes each frame to determine if the water bottle is present or not, and sets flags accordingly. The alarm component sends messages based on the flags it receives from the tracker. 
 
-Each component employs producer-consumer functionality to interact with the shared frames buffer and shared flags buffer.
+The application employs the pthreads library to implement producer-consumer functionality between each of the components.
 
 ## Video demo
 https://youtu.be/Dup3v_lNjLI
