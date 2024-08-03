@@ -1,1 +1,14 @@
 # surveillance-app
+A continuous application that monitors the presence the of a water bottle. The application sends messages to the user based on the water bottle's movements. 
+
+Camera frames are captured and digitized by the digitizer, and analyzed by the tracker, triggering control actions by the alarm module. The digitizer component of the program continually converts the video into a sequence of frames of pixels. The tracker component analyzes each frame for to determine if the water bottle is present or not. The alarm component sends messages based on the water bottle's movements. 
+
+## Video demo
+https://youtu.be/Dup3v_lNjLI
+
+## To run
+`rm -rf build`
+`mkdir build`
+`cd build`
+`cmake ..`
+`make`
