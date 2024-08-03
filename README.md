@@ -11,7 +11,7 @@ https://youtu.be/Dup3v_lNjLI
 ## To run
 
 ### Software requirements:
-Note: This project was built on tested on Ubuntu 24.04.
+Note: This project was built and tested on Ubuntu 24.04.
 
 1) Install [OpenCV](https://phoenixnap.com/kb/installing-opencv-on-ubuntu)
 
