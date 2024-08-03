@@ -7,12 +7,12 @@ Camera frames are captured and digitized by the digitizer, and analyzed by the t
 https://youtu.be/Dup3v_lNjLI
 
 ## To run
-`rm -rf build`
+`rm -rf build
 
-`mkdir build`
+mkdir build
 
-`cd build`
+cd build
 
-`cmake ..`
+cmake ..
 
-`make`
+make`
