@@ -15,19 +15,32 @@ void *capture(void *param)
         return nullptr;
     }
 
+    // Define the codec and create VideoWriter object
+    int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
+    int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
+    VideoWriter video("captured_video.avi", VideoWriter::fourcc('M', 'J', 'P', 'G'), 10, Size(frame_width, frame_height));
+
+    if (!video.isOpened()) {
+        std::cerr << "Error: Could not open video file for writing." << std::endl;
+        return nullptr;
+    }
+
     Mat frame;
     Mat analyzedFrame;
     int frameNumber = 0;
     std::string windowName = "Camera Frame";
 
     namedWindow(windowName, WINDOW_AUTOSIZE);
-
+    int j = 0;
     while (running) {
         cap >> frame; // capture a new frame
         if (frame.empty()) {
             std::cerr << "Error: Could not read frame from camera" << std::endl;
             break;
         }
+
+        // Write the frame into the video file
+        video.write(frame);
 
         pthread_mutex_lock (&m);
 		if (numIndex > BUF_SIZE) exit(1);	/* overflow */
@@ -43,9 +56,15 @@ void *capture(void *param)
         imshow(windowName,frame);
 	//	printf ("producer: inserted %d\n", frameNumber);  fflush (stdout);
         frameNumber += 1;
+
+        // std::ostringstream filename;
+        // filename << "frame_" << j << ".png";
+        // imwrite(filename.str(), frame);
+        j += 1;
     }
 
     cap.release();
+    video.release();
     destroyAllWindows();
     printf("digitizer thread returning\n");
     return nullptr;

@@ -1,6 +1,11 @@
 #include <pthread.h>
 #include "source.hpp"
 #include<signal.h> 
+#include "stdio.h"
+#include "twilio.hpp"
+#include <iterator>
+#include <thread> // For sleep_for
+#include <chrono> // For chrono::seconds
 
 bool running = true; 
 
@@ -28,8 +33,7 @@ void handle_sigint(int sig)
 } 
 
 int main(){
-
-	printf("hi\n");
+    
     signal(SIGINT, handle_sigint); 
 
     pthread_t tid1, tid2, tid3;		/* thread identifiers */

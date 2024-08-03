@@ -50,24 +50,30 @@ void *trackerFunction(void *param) {
                 rectangle(outputFrame, boundingRect, Scalar(255, 0, 0), 2);
                 // Save the frame as an image file
                 std::ostringstream filename;
-                filename << "frame_" << j << ".png";
+                filename << "detect_" << j << ".png";
                 imwrite(filename.str(), outputFrame);
-                printf("Bottle detected at iter %d\n",j); 
-                printf("width: %d\n", boundingRect.width);
-                printf("height: %d\n", boundingRect.height);
-                // printf("aspect ratio: %f\n\n", aspectRatio);
-                printf("\n");
+                //printf("Bottle detected at iter %d\n",j); 
+                //printf("width: %d\n", boundingRect.width);
+                //printf("height: %d\n", boundingRect.height);
+                //printf("\n");
                 waterBottleDetected = true;
                 j += 1;
                 break;
             }
+            else{
+                std::ostringstream filename;
+                filename << "frame_" << j << ".png";
+                imwrite(filename.str(), outputFrame);
+                j += 1;
+            }
 
         }
+
 		pthread_mutex_unlock (&m);
 		pthread_cond_signal (&c_prod);
         
         //waterBottleDetected = std::rand() % 2;
-        printf("waterBottle: %d ", waterBottleDetected);
+        //printf("waterBottle: %d ", waterBottleDetected);
         
         /* Insert into flags buffer */
         pthread_mutex_lock (&f);
@@ -76,11 +82,11 @@ void *trackerFunction(void *param) {
 			pthread_cond_wait (&f_prod, &f);
 		/* if executing here, buffer not full so add element */
         if (waterBottleDetected){
-            printf("adding true %d\n", numTrue);
+            //printf("adding true %d\n", numTrue);
             numTrue += 1;
         }
         else{
-            printf("adding false\n");
+            //printf("adding false\n");
         }
 		flags[addFlagIndex] = waterBottleDetected;
 		addFlagIndex = (addFlagIndex+1) % FLAG_BUF_SIZE;
